@@ -1,4 +1,7 @@
-﻿namespace TempTrackApp.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace TempTrackApp.Models
 {
     public partial class Klient
     {

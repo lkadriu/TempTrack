@@ -18,8 +18,6 @@ namespace TempTrackApp.Controllers
         public IActionResult Index()
         {
             var customer = cRUDContext.Klientis.ToList();
-            var weather = cRUDContext.KategoriteEmotits.ToList();
-            var Wind = cRUDContext.NiveletEeres.ToList();
             return View();
         }
 
