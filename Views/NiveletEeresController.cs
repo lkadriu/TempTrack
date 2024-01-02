@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TempTrackApp.Models;
 
@@ -21,9 +16,9 @@ namespace TempTrackApp.Views
         // GET: NiveletEeres
         public async Task<IActionResult> Index()
         {
-              return _context.NiveletEeres != null ? 
-                          View(await _context.NiveletEeres.ToListAsync()) :
-                          Problem("Entity set 'CRUDContext.NiveletEeres'  is null.");
+            return _context.NiveletEeres != null ?
+                        View(await _context.NiveletEeres.ToListAsync()) :
+                        Problem("Entity set 'CRUDContext.NiveletEeres'  is null.");
         }
 
         // GET: NiveletEeres/Details/5
@@ -149,14 +144,14 @@ namespace TempTrackApp.Views
             {
                 _context.NiveletEeres.Remove(niveletEere);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool NiveletEereExists(int id)
         {
-          return (_context.NiveletEeres?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.NiveletEeres?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

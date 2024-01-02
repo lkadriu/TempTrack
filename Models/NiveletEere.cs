@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace TempTrackApp.Models
+﻿namespace TempTrackApp.Models
 {
     public partial class NiveletEere
     {

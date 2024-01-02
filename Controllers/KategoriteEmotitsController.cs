@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TempTrackApp.Models;
 
@@ -21,9 +16,9 @@ namespace TempTrackApp.Controllers
         // GET: KategoriteEmotits
         public async Task<IActionResult> Index()
         {
-              return _context.KategoriteEmotits != null ? 
-                          View(await _context.KategoriteEmotits.ToListAsync()) :
-                          Problem("Entity set 'CRUDContext.KategoriteEmotits'  is null.");
+            return _context.KategoriteEmotits != null ?
+                        View(await _context.KategoriteEmotits.ToListAsync()) :
+                        Problem("Entity set 'CRUDContext.KategoriteEmotits'  is null.");
         }
 
         // GET: KategoriteEmotits/Details/5
@@ -149,14 +144,14 @@ namespace TempTrackApp.Controllers
             {
                 _context.KategoriteEmotits.Remove(kategoriteEmotit);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool KategoriteEmotitExists(int id)
         {
-          return (_context.KategoriteEmotits?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.KategoriteEmotits?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
