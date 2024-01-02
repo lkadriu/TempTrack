@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TempTrackApp.Models;
 
@@ -16,9 +21,9 @@ namespace TempTrackApp.Controllers
         // GET: Klientis
         public async Task<IActionResult> Index()
         {
-            return _context.Klientis != null ?
-                        View(await _context.Klientis.ToListAsync()) :
-                        Problem("Entity set 'CRUDContext.Klientis'  is null.");
+              return _context.Klientis != null ? 
+                          View(await _context.Klientis.ToListAsync()) :
+                          Problem("Entity set 'CRUDContext.Klientis'  is null.");
         }
 
         // GET: Klientis/Details/5
@@ -144,14 +149,14 @@ namespace TempTrackApp.Controllers
             {
                 _context.Klientis.Remove(klienti);
             }
-
+            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool KlientiExists(int id)
         {
-            return (_context.Klientis?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Klientis?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
