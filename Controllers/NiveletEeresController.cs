@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using TempTrackApp.Models;
 
-namespace TempTrackApp.Views
+namespace TempTrackApp.Controllers
 {
     public class NiveletEeresController : Controller
     {
