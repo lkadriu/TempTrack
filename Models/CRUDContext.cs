@@ -17,8 +17,6 @@ namespace TempTrackApp.Models
         }
 
         public virtual DbSet<Klienti> Klientis { get; set; } = null!;
-        public virtual DbSet<KategoriteEmotit> KategoriteEmotits { get; set; } = null!;
-        public virtual DbSet<NiveletEere> NiveletEeres { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
