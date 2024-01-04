@@ -16,9 +16,15 @@ namespace TempTrackApp.Models
         {
         }
 
+        public virtual DbSet<City> Cities { get; set; } = null!;
+        public virtual DbSet<Event> Events { get; set; } = null!;
+        public virtual DbSet<Forecast> Forecasts { get; set; } = null!;
         public virtual DbSet<KategoriteEmotit> KategoriteEmotits { get; set; } = null!;
         public virtual DbSet<Klienti> Klientis { get; set; } = null!;
+        public virtual DbSet<Map> Maps { get; set; } = null!;
         public virtual DbSet<NiveletEere> NiveletEeres { get; set; } = null!;
+        public virtual DbSet<Notification> Notifications { get; set; } = null!;
+        public virtual DbSet<WeatherAppConfiguration> WeatherAppConfigurations { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -31,6 +37,29 @@ namespace TempTrackApp.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<City>(entity =>
+            {
+                entity.Property(e => e.Country).HasMaxLength(255);
+
+                entity.Property(e => e.Name).HasMaxLength(255);
+            });
+
+            modelBuilder.Entity<Event>(entity =>
+            {
+                entity.Property(e => e.EventDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Location).HasMaxLength(255);
+
+                entity.Property(e => e.Title).HasMaxLength(255);
+            });
+
+            modelBuilder.Entity<Forecast>(entity =>
+            {
+                entity.Property(e => e.City).HasMaxLength(255);
+
+                entity.Property(e => e.ForecastDate).HasColumnType("datetime");
+            });
+
             modelBuilder.Entity<KategoriteEmotit>(entity =>
             {
                 entity.ToTable("KategoriteEMotit");
@@ -59,6 +88,11 @@ namespace TempTrackApp.Models
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<Map>(entity =>
+            {
+                entity.Property(e => e.Name).HasMaxLength(255);
+            });
+
             modelBuilder.Entity<NiveletEere>(entity =>
             {
                 entity.ToTable("NiveletEEres");
@@ -68,6 +102,25 @@ namespace TempTrackApp.Models
                 entity.Property(e => e.Emri).HasMaxLength(50);
 
                 entity.Property(e => e.Pershkrimi).HasMaxLength(255);
+            });
+
+            modelBuilder.Entity<Notification>(entity =>
+            {
+                entity.Property(e => e.Content).HasMaxLength(255);
+
+                entity.Property(e => e.Date).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<WeatherAppConfiguration>(entity =>
+            {
+                entity.HasKey(e => e.ConfigId)
+                    .HasName("PK__WeatherA__C3BC333C5F05F2C3");
+
+                entity.Property(e => e.ConfigId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("ConfigID");
+
+                entity.Property(e => e.ConfigName).HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);
