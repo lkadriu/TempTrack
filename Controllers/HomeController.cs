@@ -20,6 +20,10 @@ namespace TempTrackApp.Controllers
             var customer = cRUDContext.Klientis.ToList();
             return View();
         }
+        public IActionResult Location()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {
