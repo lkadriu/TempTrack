@@ -10,7 +10,11 @@ const currentTempEl = document.getElementById('current-temp');
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
+<<<<<<< HEAD
 const API_KEY = '49cc8c821cd2aff9af04c9f98c36eb74';
+=======
+const API_KEY ='49cc8c821cd2aff9af04c9f98c36eb74';
+>>>>>>> 29112cfd06dc61bca908c30a483377c54cfc459b
 
 setInterval(() => {
     const time = new Date();
@@ -18,6 +22,7 @@ setInterval(() => {
     const date = time.getDate();
     const day = time.getDay();
     const hour = time.getHours();
+<<<<<<< HEAD
     const hoursIn12HrFormat = hour >= 13 ? hour % 12 : hour
     const minutes = time.getMinutes();
     const ampm = hour >= 12 ? 'PM' : 'AM'
@@ -25,10 +30,20 @@ setInterval(() => {
     timeEl.innerHTML = (hoursIn12HrFormat < 10 ? '0' + hoursIn12HrFormat : hoursIn12HrFormat) + ':' + (minutes < 10 ? '0' + minutes : minutes) + ' ' + `<span id="am-pm">${ampm}</span>`
 
     dateEl.innerHTML = days[day] + ', ' + date + ' ' + months[month]
+=======
+    const hoursIn12HrFormat = hour >= 13 ? hour %12: hour
+    const minutes = time.getMinutes();
+    const ampm = hour >=12 ? 'PM' : 'AM'
+
+    timeEl.innerHTML = (hoursIn12HrFormat < 10? '0'+hoursIn12HrFormat : hoursIn12HrFormat) + ':' + (minutes < 10? '0'+minutes: minutes)+ ' ' + `<span id="am-pm">${ampm}</span>`
+
+    dateEl.innerHTML = days[day] + ', ' + date+ ' ' + months[month]
+>>>>>>> 29112cfd06dc61bca908c30a483377c54cfc459b
 
 }, 1000);
 
 getWeatherData()
+<<<<<<< HEAD
 function getWeatherData() {
     navigator.geolocation.getCurrentPosition((success) => {
 
@@ -38,11 +53,23 @@ function getWeatherData() {
 
             console.log(data)
             showWeatherData(data);
+=======
+function getWeatherData () {
+    navigator.geolocation.getCurrentPosition((success) => {
+        
+        let {latitude, longitude } = success.coords;
+
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`).then(res => res.json()).then(data => {
+
+        console.log(data)
+        showWeatherData(data);
+>>>>>>> 29112cfd06dc61bca908c30a483377c54cfc459b
         })
 
     })
 }
 
+<<<<<<< HEAD
 function showWeatherData(data) {
     let { humidity, pressure, sunrise, sunset, wind_speed } = data.current;
 
@@ -51,6 +78,16 @@ function showWeatherData(data) {
 
     currentWeatherItemsEl.innerHTML =
         `<div class="weather-item">
+=======
+function showWeatherData (data){
+    let {humidity, pressure, sunrise, sunset, wind_speed} = data.current;
+
+    timezone.innerHTML = data.timezone;
+    countryEl.innerHTML = data.lat + 'N ' + data.lon+'E'
+
+    currentWeatherItemsEl.innerHTML = 
+    `<div class="weather-item">
+>>>>>>> 29112cfd06dc61bca908c30a483377c54cfc459b
         <div>Humidity</div>
         <div>${humidity}%</div>
     </div>
@@ -69,7 +106,11 @@ function showWeatherData(data) {
     </div>
     <div class="weather-item">
         <div>Sunset</div>
+<<<<<<< HEAD
         <div>${window.moment(sunset * 1000).format('HH:mm a')}</div>
+=======
+        <div>${window.moment(sunset*1000).format('HH:mm a')}</div>
+>>>>>>> 29112cfd06dc61bca908c30a483377c54cfc459b
     </div>
     
     
@@ -77,20 +118,35 @@ function showWeatherData(data) {
 
     let otherDayForcast = ''
     data.daily.forEach((day, idx) => {
+<<<<<<< HEAD
         if (idx == 0) {
             currentTempEl.innerHTML = `
             <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather icon" class="w-icon">
             <div class="other">
                 <div class="day">${window.moment(day.dt * 1000).format('dddd')}</div>
+=======
+        if(idx == 0){
+            currentTempEl.innerHTML = `
+            <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather icon" class="w-icon">
+            <div class="other">
+                <div class="day">${window.moment(day.dt*1000).format('dddd')}</div>
+>>>>>>> 29112cfd06dc61bca908c30a483377c54cfc459b
                 <div class="temp">Night - ${day.temp.night}&#176;C</div>
                 <div class="temp">Day - ${day.temp.day}&#176;C</div>
             </div>
             
             `
+<<<<<<< HEAD
         } else {
             otherDayForcast += `
             <div class="weather-forecast-item">
                 <div class="day">${window.moment(day.dt * 1000).format('ddd')}</div>
+=======
+        }else{
+            otherDayForcast += `
+            <div class="weather-forecast-item">
+                <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
+>>>>>>> 29112cfd06dc61bca908c30a483377c54cfc459b
                 <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">
                 <div class="temp">Night - ${day.temp.night}&#176;C</div>
                 <div class="temp">Day - ${day.temp.day}&#176;C</div>
