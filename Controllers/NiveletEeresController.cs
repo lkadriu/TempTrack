@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TempTrackApp.Models;
 
 namespace TempTrackApp.Controllers
 {
+    [Authorize]
     public class NiveletEeresController : Controller
     {
         private readonly CRUDContext _context;

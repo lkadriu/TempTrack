@@ -24,6 +24,10 @@ namespace TempTrackApp.Controllers
         {
             return View();
         }
+        public IActionResult Location()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {
