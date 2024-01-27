@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Us</title>
+  <style>
+     body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align:center;
+      
+      margin-bottom: 20px; /* Add margin at the bottom of "Contact Us" heading */
+    }
+
+    .contact-form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 10px;
+    }
+
+    .name-fields {
+      display: flex;
+      flex-direction: column; /* Stack the fields vertically */
+      margin-bottom: 10px;
+    }
+
+    #lname {
+      margin-top: 10px; /* Add space between first and last name */
+    }
+
+    input,
+    textarea {
+      width: calc(30% - 12px);
+      padding: 6px;
+      box-sizing: border-box;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    input[type="submit"] {
+      padding: 9px 8px;
+      width: calc(10% - 12px);
+      font-size: 12px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      border-radius: 5px;
+      margin-top: 10px;
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="contact-form">
+      <form action="process_form.php" method="post" id="contactForm">
+        <h1>Contact Us</h1>
+        <img src="https://www.droptica.com/sites/droptica.com/files/styles/blog_banner_image/public/media/image/contact-pages.png?itok=hIt85Ptt" class="logo-img" alt="Contact Us Image">
+        <div class="name-fields">
+          <input type="text" id="fname" name="firstname" placeholder="First Name" required>
+          <input type="text" id="lname" name="lastname" placeholder="Last Name" required>
+          <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+          <textarea id="subject" name="subject" placeholder="What can we help you with" required></textarea>
+        </div>
+        <input type="submit" value="Submit">
+        <p class="additional-text">Need to get in touch with us? Either fill the forms with your inquiry or find the department email you'd like to contact below. Always feel free to Contact us!</p>
+      </form>
+    </div>
+  </div>
+  <script>
+    // JavaScript for form validation
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      var fname = document.getElementById('fname').value;
+      var lname = document.getElementById('lname').value;
+      var email = document.getElementById('email').value;
+      var subject = document.getElementById('subject').value;
+      var isValid = true;
+  
+      // Check if any field is empty
+      if (fname === '' || lname === '' || email === '' || subject === '') {
+        alert('Please fill out all fields.'); // Show an alert message if any field is empty
+        isValid = false;
+      }
+  
+      // If all fields are filled, submit the form
+      return isValid;
+    });
+  </script>  
+</body>
+</html>

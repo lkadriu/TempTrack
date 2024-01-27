@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Seasonal background images */
+.summer-bg {
+    background-image: url('https://images.theconversation.com/files/370685/original/file-20201123-13-x1rq79.jpg?ixlib=rb-1.1.0&rect=48%2C570%2C5446%2C2723&q=45&auto=format&w=1356&h=668&fit=crop');
+}
+
+.spring-bg {
+    background-image: url('https://media.istockphoto.com/id/1403500817/photo/the-craggies-in-the-blue-ridge-mountains.jpg?s=612x612&w=0&k=20&c=N-pGA8OClRVDzRfj_9AqANnOaDS3devZWwrQNwZuDSk=');
+}
+
+.winter-bg {
+    background-image: url('https://t4.ftcdn.net/jpg/00/64/81/97/360_F_64819783_bO18d6WGTEmDreGV8kHJd1uQ0w7ALl9n.jpg');
+}
+
+.autumn-bg {
+    background-image: url('https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072821_1280.jpg');
+}
+
+/* Weather condition background images */
+.clouds-bg {
+    background-image: url('https://img.freepik.com/free-photo/white-cloud-blue-sky_74190-2381.jpg');
+}
+
+.rain-bg {
+    background-image: url('https://images.ctfassets.net/hrltx12pl8hq/5YPWx7E9hPbcm4kwqzGniH/1d6c5affe31d747a3358446340a7ff1c/rain-images.jpg?fit=fill&w=600&h=400');
+}
+
+.thunderstorm-bg {
+    background-image: url('https://images.unsplash.com/photo-1429552077091-836152271555?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D');
+}
+
+.clear-bg {
+    background-image: url('https://s7d2.scene7.com/is/image/TWCNews/1031_nc_sunny_weather_2-1');
+}
+.snow-bg{
+    background-image: url('https://plus.unsplash.com/premium_photo-1670347627514-07a3d37e0670?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+/* Weather information container */
+.weather-container {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    margin-top: 100px;
+}
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.title {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.search-button {
+    border-radius: 50%; /* Makes the button round */
+    padding: 10px 20px; /* Adjust padding to your preference */
+    background-color: #007BFF; /* Change the button color */
+    color: white; /* Button text color */
+    border: none; /* Remove button border if needed */
+    cursor: pointer;
+}
+/* Style for the hidden additional content */
+.additional-content {
+    position: fixed;
+    bottom: -100%; /* Initially hidden below the screen */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    transition: bottom 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.additional-content.show {
+    bottom: 0; /* Show the additional content by moving it to the visible area */
+}
+
+/* Style the content inside the additional content area */
+.additional-content .content {
+    padding: 20px;
+}.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Style form inputs and buttons */
+  input[type="text"] {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+  }
+  
+  button {
+    padding: 8px 16px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+

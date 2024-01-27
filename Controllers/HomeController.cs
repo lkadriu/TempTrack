@@ -17,7 +17,7 @@ namespace TempTrackApp.Controllers
 
         public IActionResult Index()
         {
-            customer = cRUDContext.Klientis.ToList();
+            var customer = cRUDContext.Klientis.ToList();
             return View();
         }
         public IActionResult Location()

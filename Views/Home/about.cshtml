@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Set minimum height to viewport height */
+            background-color: #f0f0f0; /* Change to your desired background color */
+        }
+        .content {
+            max-width: 800px;
+            padding: 20px;
+            color: black;
+        }
+        h1 {
+            text-transform: capitalize;
+            margin-bottom: 20px;
+            color:rgb(31, 96, 188)
+        }
+
+        p {
+            line-height: 1.6;
+            color: #333;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #date {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .story-content {
+            color: black; /* Text color for the story content */
+            /* Additional styles for the story content */
+        }
+        img {
+            width: 100%;
+            height: auto;
+            margin-top: -500px; /* Experiment with different negative values */
+        }
+    </style>
+</head>
+<body>
+    <img src="https://iresizer.devops.arabiaweather.com/resize?url=https://adminassets.devops.arabiaweather.com/sites/default/files/field/image/4seasons.png&size=800x450&force_webp=1" alt="Placeholder Image" style="width: 100%; height: auto;">
+    <div class="content">
+        <h1>Welcome to the About Page</h1>
+        <p class="story-content">
+            The main idea behind this Web page is to help people to find and look for Weather Conditions around the world
+            It can help the people that are traveling a lot and the people who love traveling,so the main purpose is to help people
+            This web page was created using those programming languages 1.html,2.css,3.JavaScript,4,Python
+            It also includes the Python's frameworks which are called Flask.
+            If you need any help or got any questions feel free to contact us by sending us an email at WebApp23@gmail.com
+            Or find more information about contacting us at the Conctact bar! 
+        </p>
+    </div>
+    <p id="date"></p>
+
+    <script>
+        const currentDate = new Date().toLocaleDateString();
+        document.getElementById('date').textContent = currentDate;
+    </script>
+</body>
+</html>
