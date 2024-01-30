@@ -17,14 +17,10 @@ namespace TempTrackApp.Models
         }
 
         public virtual DbSet<City> Cities { get; set; } = null!;
-        public virtual DbSet<Configuration> Configurations { get; set; } = null!;
-        public virtual DbSet<Event> Events { get; set; } = null!;
         public virtual DbSet<Forecast> Forecasts { get; set; } = null!;
         public virtual DbSet<KategoriteEmotit> KategoriteEmotits { get; set; } = null!;
         public virtual DbSet<Klienti> Klientis { get; set; } = null!;
         public virtual DbSet<Map> Maps { get; set; } = null!;
-        public virtual DbSet<NiveletEere> NiveletEeres { get; set; } = null!;
-        public virtual DbSet<Notification> Notifications { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -42,27 +38,6 @@ namespace TempTrackApp.Models
                 entity.Property(e => e.Country).HasMaxLength(255);
 
                 entity.Property(e => e.Name).HasMaxLength(255);
-            });
-
-            modelBuilder.Entity<Configuration>(entity =>
-            {
-                entity.HasKey(e => e.ConfigId)
-                    .HasName("PK__Configur__C3BC333C8DCC7DB6");
-
-                entity.Property(e => e.ConfigId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ConfigID");
-
-                entity.Property(e => e.ConfigName).HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<Event>(entity =>
-            {
-                entity.Property(e => e.EventDate).HasColumnType("datetime");
-
-                entity.Property(e => e.Location).HasMaxLength(255);
-
-                entity.Property(e => e.Title).HasMaxLength(255);
             });
 
             modelBuilder.Entity<Forecast>(entity =>
@@ -103,24 +78,6 @@ namespace TempTrackApp.Models
             modelBuilder.Entity<Map>(entity =>
             {
                 entity.Property(e => e.Name).HasMaxLength(255);
-            });
-
-            modelBuilder.Entity<NiveletEere>(entity =>
-            {
-                entity.ToTable("NiveletEEres");
-
-                entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.Emri).HasMaxLength(50);
-
-                entity.Property(e => e.Pershkrimi).HasMaxLength(255);
-            });
-
-            modelBuilder.Entity<Notification>(entity =>
-            {
-                entity.Property(e => e.Content).HasMaxLength(255);
-
-                entity.Property(e => e.Date).HasColumnType("datetime");
             });
 
             OnModelCreatingPartial(modelBuilder);
