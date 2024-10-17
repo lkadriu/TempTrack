@@ -16,11 +16,7 @@ namespace TempTrackApp.Models
         {
         }
 
-        public virtual DbSet<City> Cities { get; set; } = null!;
-        public virtual DbSet<Forecast> Forecasts { get; set; } = null!;
         public virtual DbSet<KategoriteEmotit> KategoriteEmotits { get; set; } = null!;
-        public virtual DbSet<Klienti> Klientis { get; set; } = null!;
-        public virtual DbSet<Map> Maps { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -33,19 +29,6 @@ namespace TempTrackApp.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<City>(entity =>
-            {
-                entity.Property(e => e.Country).HasMaxLength(255);
-
-                entity.Property(e => e.Name).HasMaxLength(255);
-            });
-
-            modelBuilder.Entity<Forecast>(entity =>
-            {
-                entity.Property(e => e.City).HasMaxLength(255);
-
-                entity.Property(e => e.ForecastDate).HasColumnType("datetime");
-            });
 
             modelBuilder.Entity<KategoriteEmotit>(entity =>
             {
@@ -58,27 +41,7 @@ namespace TempTrackApp.Models
                 entity.Property(e => e.Pershkrimi).HasMaxLength(255);
             });
 
-            modelBuilder.Entity<Klienti>(entity =>
-            {
-                entity.ToTable("Klienti");
 
-                entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ID");
-
-                entity.Property(e => e.Email)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Name)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Map>(entity =>
-            {
-                entity.Property(e => e.Name).HasMaxLength(255);
-            });
 
             OnModelCreatingPartial(modelBuilder);
         }
